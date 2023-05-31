@@ -7,7 +7,7 @@ import ChatMain from '@/Components/Chat/ChatMain.vue';
 
 
 <template>
-  <Head title="Dashboard" />
+  <Head title="Chat" />
   <AuthenticatedLayout>
     <div class="py-12">
         <ChatMain/>

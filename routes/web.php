@@ -29,9 +29,9 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/message', function () {
-    return Inertia::render('Message/ListMessage');
-})->middleware(['auth', 'verified'])->name('message');
+Route::get('/chat{key?}', function () {
+    return Inertia::render('Chat/Chat');
+})->middleware(['auth', 'verified'])->name('chat');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
