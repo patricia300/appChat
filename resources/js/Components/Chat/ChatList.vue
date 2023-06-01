@@ -1,3 +1,12 @@
+<script setup>
+
+defineProps({
+    conversations:{
+        type: Object
+    },
+})
+</script>
+
 <template>
    <!-- chat list container-->
    <div>
@@ -16,32 +25,39 @@
         <!-- chat list body  -->
         <div>
             <!-- chat list item -->
-            <div class="flex flex-nowrap items-center w-24/25 hover:bg-blue-200 my-2 mx-auto p-2 rounded-md bg-gray-200">
-                <!--chat list img container -->
-                <div>
-                    <img src="https://picsum.photos/id/65/200/300" class="h-12 w-12 lg:h-14 lg:w-14 rounded-full border border-solid border-gray-300" alt="">
-                </div>
-                <!-- chat list info-->
-                <div class="w-4/5 block ml-3 text-sm lg:text-base">
-                    <!-- top row -->
-                    <div class="w-full flex items-center">
-                        <!-- username -->
-                        <div class="font-bold w-4/5 text-base">Jane Doe</div>
-                        <!-- date -->
-                        <span class="ml-auto text-sm px-2 py-1">2d</span>
+            <template v-if="conversations.length > 0">
+                <div v-for="conversation in conversations" :key="conversation.id" class="flex flex-nowrap items-center w-24/25 hover:bg-blue-200 my-2 mx-auto p-2 rounded-md bg-gray-200">
+                    <!--chat list img container -->
+                    <div>
+                        <img src="https://picsum.photos/id/65/200/300" class="h-12 w-12 lg:h-14 lg:w-14 rounded-full border border-solid border-gray-300" alt="">
                     </div>
-                    <!-- bottom row-->
-                    <div class="w-full flex flex-nowrap items-center">
-                        <!-- message body -->
-                        <div class="w-4/5 truncate font-thin text-gray-500">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur nemo reprehenderit odit asperiores atque! Vero, rem! Soluta dicta adipisci voluptas! Rerum optio facere delectus architecto accusantium impedit magnam eum eligendi!
+                    <!-- chat list info-->
+                    <div class="w-4/5 block ml-3 text-sm lg:text-base">
+                        <!-- top row -->
+                        <div class="w-full flex items-center">
+                            <!-- username -->
+                            <div class="font-bold w-4/5 text-base">Jane Doe</div>
+                            <!-- date -->
+                            <span class="ml-auto text-sm px-2 py-1">2d</span>
                         </div>
+                        <!-- bottom row-->
+                        <div class="w-full flex flex-nowrap items-center">
+                            <!-- message body -->
+                            <div class="w-4/5 truncate font-thin text-gray-500">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur nemo reprehenderit odit asperiores atque! Vero, rem! Soluta dicta adipisci voluptas! Rerum optio facere delectus architecto accusantium impedit magnam eum eligendi!
+                            </div>
 
-                        <!-- unread count-->
-                        <div class="ml-auto font-sm -mb-3 p-2 rounded-full text-blue-600 font-thin">56</div>
+                            <!-- unread count-->
+                            <div class="ml-auto font-sm -mb-3 p-2 rounded-full text-blue-600 font-thin">56</div>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </template>
+            <template v-else>
+                <div class="text-center my-3">
+                    You have no conversation
+                </div>
+            </template>
         </div>
     </div>
 </template>

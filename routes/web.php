@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\Chat\ChatListController;
+use App\Http\Controllers\Chat\CreateChatController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UsersController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -29,14 +32,15 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/chat{key?}', function () {
-    return Inertia::render('Chat/Chat');
-})->middleware(['auth', 'verified'])->name('chat');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::get('/users', [UsersController::class, 'index'])->name('users');
+    Route::post('/chat/{id}', [CreateChatController::class, 'store'])->name('chat.store');
+    Route::get('/chat{key?}', [ChatListController::class, 'index'] )->name('chat');
 });
 
 require __DIR__.'/auth.php';
