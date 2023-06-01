@@ -9,9 +9,7 @@ import ChatMain from '@/Components/Chat/ChatMain.vue';
 <template>
   <Head title="Chat" />
   <AuthenticatedLayout>
-    <div class="py-12">
-        <ChatMain/>
-    </div>
+    <ChatMain/>
   </AuthenticatedLayout>
 
 </template>

@@ -1,7 +1,7 @@
 <template>
        <!-- chat box footer -->
        <form action="">
-               <div class="w-full absolute bottom-0 h-12">
+               <div class="w-full absolute bottom-0 h-12 my-2">
                 <div class="flex flex-nowrap justify-end items-center">
                     <input
                         type="text"

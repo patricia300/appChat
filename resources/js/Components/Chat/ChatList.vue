@@ -9,24 +9,24 @@
             </div>
 
             <div class="ml-auto mr-2">
-                <img src="https://picsum.photos/id/64/200/300" class="h-14 w-14 rounded-full border border-solid border-gray-300" alt="">
+                <img src="https://picsum.photos/id/64/200/300" class="h-12 w-12 rounded-full border border-solid border-gray-300" alt="">
             </div>
         </div>
 
         <!-- chat list body  -->
         <div>
             <!-- chat list item -->
-            <div class="flex flex-nowrap items-center w-full p-2">
+            <div class="flex flex-nowrap items-center w-full hover:bg-blue-200 my-2 bg-gray-200">
                 <!--chat list img container -->
                 <div>
-                    <img src="https://picsum.photos/id/65/200/300" class="h-14 w-14 rounded-full border border-solid border-gray-300" alt="">
+                    <img src="https://picsum.photos/id/65/200/300" class="h-12 w-12 lg:h-14 lg:w-14 rounded-full border border-solid border-gray-300" alt="">
                 </div>
                 <!-- chat list info-->
-                <div class="w-4/5 block ml-3">
+                <div class="w-4/5 block ml-3 text-sm lg:text-base">
                     <!-- top row -->
                     <div class="w-full flex items-center">
                         <!-- username -->
-                        <div class="text-base font-bold w-4/5">Jane Doe</div>
+                        <div class="font-bold w-4/5 text-base">Jane Doe</div>
                         <!-- date -->
                         <span class="ml-auto text-sm px-2 py-1">2d</span>
                     </div>
