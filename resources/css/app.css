@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@layer base {
+    img{
+        @apply object-cover
+    }
+}
+
+@layer components {
+    .message_body_me {
+        @apply ml-auto bg-blue-600 text-white rounded-br-none rounded-lg;
+    }
+
+    .message_body_receiver{
+        @apply mr-auto bg-gray-200 rounded-bl-none rounded-lg;
+    }
+}

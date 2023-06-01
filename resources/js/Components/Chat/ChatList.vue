@@ -38,7 +38,7 @@
                         </div>
 
                         <!-- unread count-->
-                        <div class="ml-auto font-sm bg-gray-200 px-2 py-1 rounded-full text-violet-600 font-thin">56</div>
+                        <div class="ml-auto font-sm bg-gray-200 px-2 py-1 rounded-full text-blue-600 font-thin">56</div>
                     </div>
                 </div>
             </div>
