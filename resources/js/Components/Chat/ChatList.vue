@@ -16,7 +16,7 @@
         <!-- chat list body  -->
         <div>
             <!-- chat list item -->
-            <div class="flex flex-nowrap items-center w-full hover:bg-blue-200 my-2 bg-gray-200">
+            <div class="flex flex-nowrap items-center w-24/25 hover:bg-blue-200 my-2 mx-auto p-2 rounded-md bg-gray-200">
                 <!--chat list img container -->
                 <div>
                     <img src="https://picsum.photos/id/65/200/300" class="h-12 w-12 lg:h-14 lg:w-14 rounded-full border border-solid border-gray-300" alt="">
@@ -38,11 +38,10 @@
                         </div>
 
                         <!-- unread count-->
-                        <div class="ml-auto font-sm bg-gray-200 px-2 py-1 rounded-full text-blue-600 font-thin">56</div>
+                        <div class="ml-auto font-sm -mb-3 p-2 rounded-full text-blue-600 font-thin">56</div>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </template>

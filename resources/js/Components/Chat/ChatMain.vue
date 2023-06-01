@@ -8,7 +8,7 @@ import SendMessage from './SendMessage.vue';
 <template>
     <div>
         <!-- chat-container -->
-        <div class="fixed w-full h-9/10 flex flex-wrap left-0 top-16">
+        <div class="fixed w-full h-93/100 flex flex-wrap left-0 top-16">
 
             <!-- chat-list-container -->
             <div class="relative w-full md:w-2/5 lg:w-2/5 xl:w-1/4 h-full border border-solid border-gray-400">
