@@ -24,6 +24,6 @@ class Conversation extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, (auth()->user()->id != $this->sender_id) ? 'receiver_id' : 'sender_id');
     }
 }
