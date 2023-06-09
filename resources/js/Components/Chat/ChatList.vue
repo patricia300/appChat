@@ -3,11 +3,14 @@ import moment from "moment";
 import { reactive } from "vue";
 import { computed } from "vue";
 
+
 const props = defineProps({
     conversations:{
         type: Object
     },
 })
+
+const emit = defineEmits(['click'])
 
 const conversationsData = reactive(props.conversations.map((value) => {
     const date = computed(() => moment(value.messages.reduce((prev,cur) => prev.id > cur).created_at).fromNow() )
@@ -20,6 +23,12 @@ const conversationsData = reactive(props.conversations.map((value) => {
     lastMessage: value.messages.reduce((prev,cur) => prev.id > cur).body,
     }
 }));
+
+
+function onSelectedConversation(id)
+{
+    emit('click', id);
+}
 
 </script>
 
@@ -45,6 +54,7 @@ const conversationsData = reactive(props.conversations.map((value) => {
                 <div
                     v-for="conversation in conversationsData"
                     :key="conversation.id"
+                    @click="onSelectedConversation(conversation.id)"
                     class="flex flex-nowrap items-center w-24/25 hover:bg-blue-200 my-2 mx-auto p-2 rounded-md bg-gray-200 cursor-pointer"
                 >
                     <!--chat list img container -->

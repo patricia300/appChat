@@ -1,5 +1,13 @@
 <script setup>
 import SendMessage from './SendMessage.vue';
+import moment from 'moment';
+
+const props = defineProps({
+    messages : {
+        type: Object
+    }
+});
+
 
 </script>
 
@@ -30,57 +38,23 @@ import SendMessage from './SendMessage.vue';
             </div>
         </div>
         <!-- chat box body -->
-        <div class="absolute h-5/6 bottom-12 overflow-hidden overflow-y-scroll top-16 px-3">
-            <div class="block max-w-4/5 my-3 p-2 message_body_receiver">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus nostrum inventore blanditiis ea consequatur soluta voluptates quia obcaecati iusto. Culpa iusto sunt sapiente perferendis iure, commodi totam! Cum, facere qui.
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet eius, dicta a sint, impedit maiores tenetur dolor quaerat earum qui provident laboriosam aspernatur, dolorem omnis repellat veniam aliquam illum excepturi.
-                <div class="w-full flex flex-nowrap justify-end items-center">
-                    <div class="text-sm pr-2">
-                        5 hours ago
-                    </div>
-                    <div>
-                        <i class="bi bi-check2 text-lg"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="block max-w-4/5 my-3 p-2 message_body_me">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus nostrum inventore blanditiis ea consequatur soluta voluptates quia obcaecati iusto. Culpa iusto sunt sapiente perferendis iure, commodi totam! Cum, facere qui.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores aliquid adipisci voluptatem explicabo sequi est. In, mollitia voluptatibus quas optio tenetur natus dolorum tempora quidem, eum aspernatur dicta, porro cumque!
-                <div class="w-full flex flex-nowrap justify-end items-center">
-                    <div class="text-sm pr-2">
-                        5 hours ago
-                    </div>
-                    <div>
-                        <i class="bi bi-check2 text-lg"></i>
+        <div class="absolute w-full h-5/6 bottom-12 overflow-hidden overflow-y-scroll top-16 px-3">
+            <template v-if="!messages">
+                No selected conversation
+            </template>
+            <template v-else>
+                <div v-for="message in messages" :key="message.id" class="block max-w-4/5 my-3 p-2 message_body_receiver" >
+                        {{ message.body }}
+                    <div class="w-full flex flex-nowrap justify-end items-center">
+                        <div class="text-sm pr-2">
+                            {{ moment(message.created_at).fromNow() }}
+                        </div>
+                        <div>
+                            <i class="bi bi-check2 text-lg"></i>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="block max-w-4/5 my-3 p-2 message_body_receiver">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus nostrum inventore blanditiis ea consequatur soluta voluptates quia obcaecati iusto. Culpa iusto sunt sapiente perferendis iure, commodi totam! Cum, facere qui.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex incidunt laboriosam assumenda dicta quia ipsa veritatis totam itaque corporis voluptate aliquam dolorum libero enim, vero quae. Debitis distinctio beatae soluta?
-                <div class="w-full flex flex-nowrap justify-end items-center">
-                    <div class="text-sm pr-2">
-                        5 hours ago
-                    </div>
-                    <div>
-                        <i class="bi bi-check2 text-lg"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="block max-w-4/5 my-3 p-2 message_body_me">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus nostrum inventore blanditiis ea consequatur soluta voluptates quia obcaecati iusto. Culpa iusto sunt sapiente perferendis iure, commodi totam! Cum, facere qui.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex incidunt laboriosam assumenda dicta quia ipsa veritatis totam itaque corporis voluptate aliquam dolorum libero enim, vero quae. Debitis distinctio beatae soluta?
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi inventore possimus ut sed dicta repellendus, asperiores tempore fuga dolorum iste, vitae voluptates at enim dignissimos obcaecati molestiae magni aliquam deserunt!
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus repellat excepturi eius exercitationem voluptates unde facilis error minus, similique iste totam, modi perferendis, vero ratione fuga ex aspernatur eveniet itaque!
-                <div class="w-full flex flex-nowrap justify-end items-center">
-                    <div class="text-sm pr-2">
-                        5 hours ago
-                    </div>
-                    <div>
-                        <i class="bi bi-check2 text-lg"></i>
-                    </div>
-                </div>
-            </div>
+            </template>
         </div>
         <!-- chat box footer -->
         <SendMessage/>
